@@ -25,9 +25,15 @@
             <% end %>
           </ul>
         </li>
+        <% if current_user %>
+        <li>
+          <%= link_to 'Logout', logout_path %>
+        </li>
+        <% else %>
         <li>
           <%= link_to 'Login', new_session_path %>
         </li>
+        <% end %>
         <li>
           <%= link_to 'Register', new_user_path %>
         </li>
