@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  before_filter :authorize_user
+  # before_filter :authorize_user
 
   def new
     @review = Review.new
@@ -12,10 +12,11 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
     @review.save
     redirect_to product_path(@product)
+  end
 
   private
     def review_params
-      params.require(:review).permit(:description, :rating)
+      params.require(:review).permit(:description, :rating, :user_id, :product_id)
     end
 
     def authorize_user
