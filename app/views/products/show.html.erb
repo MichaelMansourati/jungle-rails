@@ -31,7 +31,7 @@
   <h2>Reviews</h2>
   <% if @product.reviews.length > 0 %>
   <h4> Average Rating: <%= number_with_precision(@product.reviews.average(:rating), precision: 2) %></h4>
-  <% @product.reviews.each do |review| %>
+  <% @product.reviews.reverse.each do |review| %>
     <p>
       <strong>rating: </strong><%= review.rating %>
       </br>
